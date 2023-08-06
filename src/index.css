@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.logo {
+  height: 9.375em;
+}
+
+.subtitle{
+    color: coral;
+    font-style: italic;
+    font-size: x-large;
+}
+
+.price {
+  font-size: larger;
+  color: coral;
+}

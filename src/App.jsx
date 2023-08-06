@@ -5,27 +5,13 @@ import FeaturedHouse from './components/FeaturedHouse'
 import SearchResults from './search-results'
 import HouseFilter from './components/HouseFilter'
 import HouseFromQuery from './components/HouseFromQuery'
+import useHouses from './hooks/useHouses'
+import useFeaturedHouses from './hooks/useFeaturedHouses'
 
 
 function App() {
- const[allHouses, setAllHouses] = useState([])
-
- useEffect(()=>{
-  const fetchHouses = async ()=>{
-    const res = await fetch('./houses.json')
-    const houses = await res.json()
-    setAllHouses(houses)
-  }
-  fetchHouses()
- },[])
-
- const featuredHouse = useMemo(()=>{
-  if(allHouses.length){
-    const randomIndex = Math.floor(Math.random()* allHouses.length)
-    return allHouses[randomIndex]
-  }
- }, [allHouses])
-
+  const allHouses = useHouses()
+  const featuredHouse = useFeaturedHouses(allHouses)
 
   return (
     <Router>
